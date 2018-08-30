@@ -1,4 +1,4 @@
-import echo from './echo';
+import echo from "./echo";
 
 /**
  * Given an object,
@@ -8,18 +8,16 @@ import echo from './echo';
  */
 export default function keysMatching(obj, predicate = echo) {
 
-  // /////////////////////////////////////////
-  //
-  // TUTORIAL
-  //
-  // Implement the method to loop through all keys
-  // in the object with Object.keys() and then
-  // return an array of the keys whose value
-  // satisfies the predicate.
-  //
+    // /////////////////////////////////////////
+    //
+    // TUTORIAL
+    //
+    // Implement the method to loop through all keys
+    // in the object with Object.keys() and then
+    // return an array of the keys whose value
+    // satisfies the predicate.
+    //
 
-
-
-
-
+    // Object.keys(obj).filter(key => predicate(obj[key]));
+    Object.entries(obj).filter({key, value} = predicate(value));
 }

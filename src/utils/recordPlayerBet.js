@@ -11,91 +11,89 @@
  */
 function recordPlayerBet(player, bet) {
 
-  // /////////////////////////////////////////
-  //
-  // TUTORIAL
-  //
-  // Return the player as is if bet is
-  // zero, undefined, or null
-  //
+    // /////////////////////////////////////////
+    //
+    // TUTORIAL
+    //
+    // Return the player as is if bet is
+    // zero, undefined, or null
+    //
+    if(!bet) {
+        return player;
+    }
 
 
+    // /////////////////////////////////////////
+    //
+    // TUTORIAL
+    //
+    // Deconstruct playerBank and playerBet,
+    // then increment/decrement as appropriate
+    //
+    // Example: Given an object
+    //
+    // const obj = { a: 1, b: 2, c: 3 };
+    //
+    // You can separate to two different variables like this
+    //
+    // let { a, b } = obj;
+    //
+    // which is the same as
+    //
+    // const a = obj.a;
+    // const b = obj.b;
+    //
 
-  // /////////////////////////////////////////
-  //
-  // TUTORIAL
-  //
-  // Deconstruct playerBank and playerBet,
-  // then increment/decrement as appropriate
-  //
-  // Example: Given an object
-  //
-  // const obj = { a: 1, b: 2, c: 3 };
-  //
-  // You can separate to two different variables like this
-  //
-  // let { a, b } = obj;
-  //
-  // which is the same as
-  //
-  // const a = obj.a;
-  // const b = obj.b;
-  //
+    let {playerBank, playerBet} = player;
+    playerBank -= bet;
+    playerBet += bet;
 
-
-
-
-  // /////////////////////////////////////////
-  //
-  // TUTORIAL
-  //
-  // Now return a new object player object
-  // that has everything from the player argument
-  // along with the new playerBank and playerBet
-  // values
-  //
-  // Example: given the obj declaration in the previous example
-  // we can create ane shallow copy as is like this:
-  //
-  // const shallowCopy = { ...obj };
-  //
-  // and we can specify default values like this:
-  //
-  // const defaulted = { d: 4, ...obj };
-  //
-  // or we can provide specific overridden values
-  //
-  // const overridden  = { ...obj, a: 0 };
-  //
-
-
-
-
+    // /////////////////////////////////////////
+    //
+    // TUTORIAL
+    //
+    // Now return a new object player object
+    // that has everything from the player argument
+    // along with the new playerBank and playerBet
+    // values
+    //
+    // Example: given the obj declaration in the previous example
+    // we can create ane shallow copy as is like this:
+    //
+    // const shallowCopy = { ...obj };
+    //
+    // and we can specify default values like this:
+    //
+    // const defaulted = { d: 4, ...obj };
+    //
+    // or we can provide specific overridden values
+    //
+    // const overridden  = { ...obj, a: 0 };
+    //
+    return {
+        ...player,
+        playerBank,
+        playerBet
+    };
 }
-
-
-
-
-
-
 
 
 if (require.main === module) {
 
-  const original = {
-    playerName: 'Sam',
-    playerBank: 100,
-    playerBet: 0
-  };
-  const afterBet = recordPlayerBet(original, 15);
+    const original = {
+        playerName: 'Sam',
+        playerBank: 100,
+        playerBet: 0
+    };
+    const afterBet = recordPlayerBet(original, 15);
 
-  console.dir({ original }, { colors: true});
-  console.dir({ afterBet }, {colors: true });
-  console.log(
-    original === afterBet
-      ? 'Replaced object but shouldn\'t have'
-      : 'Returned new object as expected');
+    console.dir({original}, {colors: true});
+    console.dir({afterBet}, {colors: true});
+    console.log(
+        original === afterBet
+            ? 'Replaced object but shouldn\'t have'
+            : 'Returned new object as expected');
 
 } else {
-  module.exports = recordPlayerBet;
+    module.exports = recordPlayerBet;
 }

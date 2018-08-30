@@ -10,24 +10,36 @@ import echo from './echo';
 export default function countInArray(array, predicate = echo) {
 
 
-  // /////////////////////////////////////////
-  //
-  // TUTORIAL
-  //
-  // Implement method to count items in the
-  // array matching the predicate.
-  //
-  // reduce takes a callback and an initializer.
-  //
-  //   [1, 2, 3].reduce(
-  //     (total, item) => total + item,
-  //     0)
-  //
-  // Will add up the numbers. It uses an initial
-  // value of zero and then for each value returns
-  // the accumulated value plus each item.
-  //
+    // /////////////////////////////////////////
+    //
+    // TUTORIAL
+    //
+    // Implement method to count items in the
+    // array matching the predicate.
+    //
+    // reduce takes a callback and an initializer.
+    //
+    //   [1, 2, 3].reduce(
+    //     (total, item) => total + item,
+    //     0)
+    //
+    // Will add up the numbers. It uses an initial
+    // value of zero and then for each value returns
+    // the accumulated value plus each item.
+    //
+    //
+    // array.reduce((count, item) => {
+    //     if (item === predicate()) {
+    //         return ++coun;
+    //     } else {
+    //         return count;
+    //     }
+    // })
 
-
-
-}
+    array.reduce((count, item) => {
+        if (item === predicate()) {
+            return ++count;
+        } else {
+            return count;
+        }
+    })}
